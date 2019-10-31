@@ -4,7 +4,6 @@ The file should be removed before merging into master.
 
 I.  Slow grading.
 
-Hopefully this is improved by the new index timereviewed
 
 II.  Slow matchmaking
 
@@ -23,4 +22,6 @@ The blacklist handling should probably be simplified, one way or another.  Sugge
 a. It may be better to store the blacklist in a field for each capquiz user, rather than recreating it from the attempts.
 b. It may be better to filter out the forbidden questions in the client, rather than having a long list of inequality constraints in an SQL call.
 
+III.  Generally slow
 
+It seems all views are slow on some quizzes depending on the number of users, number of attempts, and type of questions.  A new CAPQuiz instance with no users is fast though. Postgres logs show an enormous number of queries when a page is loaded, and we should probably scrutise the code to reduce the number of DB calls.
