@@ -41,6 +41,10 @@ class capquiz_question_list {
         $this->record = $record;
         $entries = $DB->get_records('capquiz_question', ['question_list_id' => $this->record->id]);
         $this->questions = [];
+        // TODO: We must not retrieve all questions here.
+        // It is expensive and rarely needed.
+        // When needed, the questions should be retrieved in one query
+        // possibly from a JOIN with capquiz_question
         foreach ($entries as $entry) {
             $this->questions[] = new capquiz_question($entry);
         }

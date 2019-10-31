@@ -168,7 +168,7 @@ class capquiz {
     }
 
     public function course() : \stdClass {
-       if ( $this->courserecord == null ) {
+       if ( is_null( $this->courserecord ) ) {
            $this->courserecord = $DB->get_record('course', ['id' => $this->cm->course], '*', MUST_EXIST);
        }
        return $this->courserecord;
