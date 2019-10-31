@@ -38,7 +38,7 @@ class capquiz {
     private $cm;
 
     /** @var \stdClass $courserecord */
-    private $courserecord;
+    private $courserecord = null;
 
     /** @var \stdClass $record */
     private $record;
@@ -55,7 +55,6 @@ class capquiz {
         $this->context = \context_module::instance($cmid);
         $PAGE->set_context($this->context);
         $this->renderer = $PAGE->get_renderer('mod_capquiz');
-        $this->courserecord = $DB->get_record('course', ['id' => $this->cm->course], '*', MUST_EXIST);
         $this->record = $DB->get_record('capquiz', ['id' => $this->cm->instance], '*', MUST_EXIST);
         $this->qlist = capquiz_question_list::load_question_list($this);
     }
@@ -169,7 +168,10 @@ class capquiz {
     }
 
     public function course() : \stdClass {
-        return $this->courserecord;
+       if ( $this->courserecord == null ) {
+           $this->courserecord = $DB->get_record('course', ['id' => $this->cm->course], '*', MUST_EXIST);
+       }
+       return $this->courserecord;
     }
 
     public function renderer() : \renderer_base {
