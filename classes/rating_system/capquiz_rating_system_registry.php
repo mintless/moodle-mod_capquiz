@@ -20,6 +20,8 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/mod/capquiz/classes/rating_system/elo_rating/elo_rating_system.php');
 require_once($CFG->dirroot . '/mod/capquiz/classes/rating_system/elo_rating/elo_rating_system_form.php');
+require_once($CFG->dirroot . '/mod/capquiz/classes/rating_system/glicko_rating/glicko_rating_system.php');
+require_once($CFG->dirroot . '/mod/capquiz/classes/rating_system/glicko_rating/glicko_rating_system_form.php');
 
 /**
  * @package     mod_capquiz
@@ -81,7 +83,15 @@ class capquiz_rating_system_registry {
     private function register_rating_systems() {
         // The first listed will be selected by default when creating a new activity.
         $this->systems = [
-            'Elo' => [
+            'Glicko' => [
+                function () {
+                    return new glicko_rating_system();
+                },
+                function (\moodle_url $url, \stdClass $configuration) {
+                    return new glicko_rating_system_form($configuration, $url);
+                }
+            ],
+           'Elo' => [
                 function () {
                     return new elo_rating_system();
                 },
