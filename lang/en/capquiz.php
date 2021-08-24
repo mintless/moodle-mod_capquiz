@@ -124,6 +124,15 @@ $string['update_rating_explanation'] = '<p>The question ratings can be edited be
 $string['question_list_no_questions'] = 'This capquiz has no questions. Add some questions from the list to the right';
 $string['n_closest'] = 'N-closest';
 $string['chronological'] = 'Chronological';
+$string['irt'] = 'IRT';
+$string['IRT'] = 'IRT';
+$string['prequestionning'] = 'Enable Prequestions';
+$string['pretest'] = 'Enable Pretest';
+$string['pretest_required'] = 'To choose an option is required';
+$string['pretest_help'] = 'To choose an option is required';
+$string['qtype'] = 'Choose Grading for Questions';
+$string['qtype_required'] = 'To choose an option is required';
+$string['qtype_help'] = 'Choose between the available options. Automatic will choose difficulty level automatically';
 $string['no_strategy_specified'] = 'No strategy specified';
 
 $string['one_star'] = '1 Star';
@@ -230,3 +239,20 @@ $string['timereviewed'] = 'Time reviewed';
 $string['strftimedatetimeseconds'] = '%d %B %Y, %I:%M:%S %p';
 $string['reportshowonlyanswered'] = 'Show only answered attempts';
 $string['reportshowonlyanswered_help'] = 'Show only attempts by students that have been answered and submitted.';
+
+// added new
+
+$string['deviation'] = 'Deviation';
+$string['deviation_help'] = 'The deviation measures the accuracy of a players rating. For example a player with a rating of 1500 and an RD of 50 has a real strength between 1400 and 1600 (two standard deviations from 1500) with 95% confidence.';
+$string['deviation_specified_rule'] = 'Rating Deviation must be specified';
+$string['deviation_numeric_rule'] = 'Default rating must be a numeric value';
+
+$string['volatility'] = 'Volatility';
+$string['volatility_help'] = 'The volatility measure indicates the degree of expected fluctuation in a players rating. Start should be at 0.06';
+$string['volatility_specified_rule'] = 'Volatility must be specified';
+$string['volatility_numeric_rule'] = 'Default rating must be a numeric value';
+
+$string['tau'] = 'Tau';
+$string['tau_help'] = 'The system constant Tau constrains the change in volatility over time. Reasonable choiches are between 0.3 and 1.2. Smaller values prevent the volatility measures from changing by large amounts.';
+$string['tau_specified_rule'] = 'Tau must be specified';
+$string['tau_numeric_rule'] = 'Default rating must be a numeric value';
