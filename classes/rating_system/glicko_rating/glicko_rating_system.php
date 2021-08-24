@@ -144,8 +144,6 @@ class glicko_rating_system extends capquiz_rating_system {
 	}
 	
 	private function glicko($data, $realplayer) {
-/* 		if ($realplayer == false){
-		print_object($data); die();	}	 */
 		$tau = $this->tau;
 		$sigma = $data->sigma;
 		$rating = $data->newrating;
