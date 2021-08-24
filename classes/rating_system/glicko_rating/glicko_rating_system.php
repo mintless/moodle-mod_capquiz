@@ -90,7 +90,6 @@ class glicko_rating_system extends capquiz_rating_system {
         $loser->newrating = ($loser->rating() - 1500)/$this->multiplier;
 		$loser->deviation = $this->deviation;
 		$loser->phi = $this->deviation/$this->multiplier;
-		print_object($loser); die();
 		$userratingsloser = new stdClass();
 		$userratingsloser = $this->user_ratings_by_question($loser->id());
 
